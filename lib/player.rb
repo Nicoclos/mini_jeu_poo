@@ -61,6 +61,7 @@ class HumanPlayer < Player
     puts "TULULU TULULU TULULU TULULU TULULU... TADADADA ! Tu as trouver une arme #{random_weapon}!"
     if random_weapon > @weapon_level
       puts "Hé, franchement, elle est carrément meilleure que celle que tu as actuellement, alors hop embarques la !"
+      @weapon_level = random_weapon
     else
       puts "Franchement, pas ouf du tout le truc, ça peut faire un bon gratte-dos par exemple..."
     end
