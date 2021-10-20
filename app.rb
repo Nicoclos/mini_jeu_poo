@@ -5,27 +5,20 @@ require_relative 'lib/game'
 require_relative 'lib/player'
 
 
-def player_uno
-    player1 = Player.new("Josiane")
-end
+player1 = Player.new("Josiane")
+player2 = Player.new("José")    
 
-def player_dos
-    player2 = Player.new("José")    
-end
 
-def healthy
+while player1.life_points > 0 && player2.life_points > 0
     puts "Voici l'état de forme de nos combattants du jour :"
-    puts player_uno.show_state
-    puts player_dos.show_state
-end
-
-def announce
+    puts player1.show_state
+    puts player2.show_state
     puts "QUE LA BASTON COMMENCE ! ON VEUT DU SANG PUTAIN !"
+    player1.attacks(player2)
+    if player2.life_points <= 0
+        break
+    end
+    player2.attacks(player1)
 end
 
-def fight
-    player_uno.attacks(player_dos)
-    player_dos.attacks(player_uno)
-end
-binding.pry
-
+# binding.pry

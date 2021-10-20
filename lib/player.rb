@@ -11,7 +11,7 @@ class Player
     end
 
     def gets_damage(damage)
-        @life_points - damage
+        @life_points -= damage
         if @life_points <= 0
             puts "#{name} a perdu tous ses PV ! #{name} lâche 20 bitcoins en s'effondrant et se fait absorber par le sol pour rejoindre les entrailles de la Terre..."
         end
@@ -20,6 +20,7 @@ class Player
     def attacks(foe)
         puts "#{name} s'en prend violemment à #{foe.name} ! Ça va barder !"
         damage_dealt = compute_damage
+        foe.gets_damage(damage_dealt)
         puts "#{name} inflige #{damage_dealt} points de dégâts !"
         if damage_dealt >= 4
             puts "Quel coup de bg ! #{foe.name} s'en est pris plein la gueule ! "
@@ -30,7 +31,7 @@ class Player
         else
             puts "Ça fait mal putain !!"    
         end
-        foe.gets_damage(damage_dealt)
+        
     end
 
     def compute_damage
