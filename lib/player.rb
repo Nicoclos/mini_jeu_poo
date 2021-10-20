@@ -20,7 +20,6 @@ class Player
   def attacks(foe)
     puts "#{name} s'en prend violemment à #{foe.name} ! Ça va barder !"
     damage_dealt = compute_damage
-    foe.gets_damage(damage_dealt)
     puts "#{name} inflige #{damage_dealt} points de dégâts !"
     if damage_dealt >= 4
       puts "Quel coup de bg ! #{foe.name} s'en est pris plein la gueule ! "
@@ -31,6 +30,7 @@ class Player
     else
       puts "Ça fait mal putain !!"    
     end
+    foe.gets_damage(damage_dealt)
   end
 
   def compute_damage
@@ -44,7 +44,7 @@ class HumanPlayer < Player
 
   def initialize(name)
     super(name)
-    @lifepoints=100
+    @life_points=100
     @weapon_level =1
   end
 
@@ -72,12 +72,12 @@ class HumanPlayer < Player
     if random_health == 1
       puts "Failed, tu n'as rien trouvé..."
     elsif random_health > 1 && random_health < 6
-      self.lifepoints += 50
-      self.lifepoints = 100 if self.lifepoints > 100
+      self.life_points += 50
+      self.life_points = 100 if self.life_points > 100
       puts "Pas mal, tu as trouvé un pack de +50 points de vie !"
     else
-      self.lifepoints += 80
-      self.lifepoints = 100 if self.lifepoints > 100
+      self.life_points += 80
+      self.life_points = 100 if self.life_points > 100
       puts "Bg, tu as trouvé un pack de +80 points de vie !"
     end
   end  

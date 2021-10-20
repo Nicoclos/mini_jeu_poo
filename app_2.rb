@@ -52,7 +52,7 @@ while user.life_points >0 && (enemies[0].life_points > 0 || enemies[1].life_poin
 
   gets.chomp
 
-  if enemies[0].life_points > 0 && enemies[1].life_points > 0
+  if enemies[0].life_points > 0 || enemies[1].life_points > 0
     puts "Les autres joueurs t'attaquent !"
     enemies.each do |player|
       if player.life_points > 0
